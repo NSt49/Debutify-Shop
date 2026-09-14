@@ -239,11 +239,11 @@
                     </button>
                   </div>
                 {% else %}
-                  {% capture "form_classes" %}
+                  {% capture form_classes %}
                     product-single__form{% if product.has_only_default_variant %} product-single__form--no-variants{% endif %}
                   {%- endcapture %}
 
-                  {% capture "form_id" %}AddToCartForm--{{ section.id }}{%- endcapture %}
+                  {% capture form_id %}AddToCartForm--{{ section.id }}{%- endcapture %}
 
                   {% include "dbtfy-color-swatches" %}{% form 'product', product, class:form_classes, id:form_id %}
                     {% unless product.has_only_default_variant %}
@@ -385,4 +385,16 @@
   $(document).ready(function(){
     
   });
-</script>
+</script>{%- comment -%}
+
+This file has been rewritten to preserve the original behavior.
+
+---
+Changes:
+- from: '{% capture "form_classes" %}'
+  to: "{% capture form_classes %}"
+  position: 12852..12878
+- from: '{% capture "form_id" %}'
+  to: "{% capture form_id %}"
+  position: 13061..13082
+{%- endcomment -%}
